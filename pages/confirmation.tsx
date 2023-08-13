@@ -13,7 +13,7 @@ export default function Confirmation() {
     const [confirm, setConfirm] = useState('');
     const [age, setAge] = useState('');
     const [loading, setLoading] = useState(false);
-    const [modalSuccess, setModalSuccess] = useState(true);
+    const [modalSuccess, setModalSuccess] = useState(false);
     const [nameConfirm, setNameConfirm] = useState('');
 
     async function handleConfirm(){
