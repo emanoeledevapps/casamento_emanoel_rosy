@@ -34,6 +34,7 @@ export default function Confirmation() {
         }
 
         try{
+            setLoading(true);
             const responseConfirm = await axios.post('https://listapresen-aserver-production.up.railway.app/confirmations', {
                 name,
                 confirmation: true,
