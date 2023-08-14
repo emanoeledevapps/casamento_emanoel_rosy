@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {eachDayOfInterval, eachHourOfInterval, eachMinuteOfInterval} from 'date-fns';
+import {MdLocationPin} from 'react-icons/md';
 
 export default function Home() {
     const [daysRemaining, setDaysReamining] = useState(0);
@@ -14,7 +15,6 @@ export default function Home() {
         const hours = eachHourOfInterval({start: new Date(), end: new Date('2023-09-02 15:00:00')});
         setHoursReamining((hours.length / 24));
         const minutes = eachHourOfInterval({start: new Date(), end: new Date('2023-09-02 15:00:00')});
-        console.log((hours.length / minutes.length));
     },[]);
 
     return (
@@ -25,15 +25,15 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <header className="w-full h-20 border-b-2 flex justify-center items-center">
+            <header className="w-full h-20 border-b-2 flex justify-center items-center fixed bg-[#cb6834]">
                 <Image
-                    src={require('../src/assets/img-header.png')}
+                    src={require('../src/assets/img-header-white.png')}
                     alt='Imagem dos noivos'
                     className='w-[75px] object-contain'
                 />  
             </header>
 
-            <main className='flex flex-col items-center mt-10 px-3'>
+            <main className='flex flex-col items-center mt-24 px-3 bg-flores-1 bg-center'>
                 <Image
                     src={require('../src/assets/img-site.png')}
                     alt='Imagem dos noivos'
@@ -41,10 +41,14 @@ export default function Home() {
                 />
 
                 <p className="text-[#cb6843] text-center my-3">Estamos ansiosos esperando por você, confirme sua presença abaixo</p>
+                <p className="text-[#cb6843] text-center">A festa será realizada no Victors Buffet, dia 2 de setembro às 11:30</p>
+                <div className='flex items-center justify-center gap-1'>
+                    <MdLocationPin color='black' size={25}/>
+                    <p className='text-center'>R. Saldanha Marinho 259 - Santa Paula, São Caetano do Sul</p>
+                </div>
+                <h2 className="text-center font-bold text-xl mt-5">Faltam</h2>
 
-                <h2 className="text-center font-bold text-xl">Faltam</h2>
-
-                <h2 className="text-center text-[#cb6843] font-bold text-3xl">{daysRemaining} Dias</h2>
+                <h3 className="text-center text-[#cb6843] font-bold text-3xl">{daysRemaining} Dias</h3>
 
                 <Link
                     href='/confirmation'
@@ -52,6 +56,9 @@ export default function Home() {
                 >
                     Confirmar presença
                 </Link>
+
+                <h4 className="font-bold text-[#cb6843] mt-10">Quer nos presentear?</h4>
+                <p className="text-black text-center">Fique a vontade para enviar qualquer valor de sua preferência</p>
             </main>
 
             <footer>

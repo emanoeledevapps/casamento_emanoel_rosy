@@ -5,8 +5,9 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import * as Dialog from '@radix-ui/react-dialog';
 import { ModalSuccess } from '../src/components/ModalSuccess';
+import {HiHome} from 'react-icons/hi';
+import {FaInfoCircle} from 'react-icons/fa';
 
 export default function Confirmation() {
     const [name, setName] = useState('');
@@ -65,15 +66,15 @@ export default function Confirmation() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <header className="w-full h-20 border-b-2 flex justify-center items-center">
+            <header className="w-full h-20 border-b-2 flex justify-center items-center bg-[#cb6834] fixed">
                 <Image
-                    src={require('../src/assets/img-header.png')}
+                    src={require('../src/assets/img-header-white.png')}
                     alt='Imagem dos noivos'
                     className='w-[75px] object-contain'
                 />
             </header>
 
-            <main className='flex flex-col w-full h-screen lg:w-[500px] mt-10 px-3'>
+            <main className='flex flex-col w-full lg:w-[500px] mt-24 px-3'>
                 <label htmlFor="name" className="font-bold text-[#cb6843]">Seu nome (Completo):</label>
                 <input
                     id='name'
@@ -102,7 +103,8 @@ export default function Confirmation() {
                     placeholder='Digite a idade aqui'
                 />
 
-                <div className="bg-gray-200 rounded-md p-3 flex mt-5">
+                <div className="bg-gray-200 rounded-md p-3 flex mt-5 gap-2">
+                    <FaInfoCircle color='#aaa' size={30}/>
                     <p className="text-gray-500">Se você for confirmar a presença de mais de uma pessoa, confirme uma por vez!</p>
                 </div>
 
@@ -112,6 +114,14 @@ export default function Confirmation() {
                 >
                     {loading ? 'Confirmando... Aguarde' : 'Confirmar presença'}
                 </button>
+
+                <Link
+                    className='flex items-center justify-center rounded-3xl font-bold text-[#cb6843] text-lg border-4 border-[#cb6843] h-14 px-3 mt-2'
+                    href='/'
+                >
+                    <HiHome color='#cb6843' size={24}/>
+                    Voltar para o início
+                </Link>
             </main>
 
             <footer>
@@ -122,15 +132,12 @@ export default function Confirmation() {
                 position='top-center'
             />
 
-            <Dialog.Root
-                open={modalSuccess}
-                onOpenChange={(open) => setModalSuccess(open)}
-            >
+            {modalSuccess && (
                 <ModalSuccess
                     close={() => setModalSuccess(false)}
                     name={nameConfirm}
                 />
-            </Dialog.Root>
+            )}
         </div>
     )
 }

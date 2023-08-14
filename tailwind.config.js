@@ -9,7 +9,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'flores-1': "url('/src/assets/bg-2.png')"
+      }
+    },
   },
   plugins: [],
 }
