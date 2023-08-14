@@ -2,20 +2,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import {eachDayOfInterval, eachHourOfInterval, eachMinuteOfInterval} from 'date-fns';
 import {MdLocationPin} from 'react-icons/md';
+import { useCountdown } from '../src/hooks/useCountdown';
+import ImgHeader from '/public/assets/nome-branco.png';
 
 export default function Home() {
+    const [day, hour, minute, second] = useCountdown('2023-09-02 14:00:00');
     const [daysRemaining, setDaysReamining] = useState(0);
     const [hoursRemaining, setHoursReamining] = useState(0);
-
-    useEffect(() => {
-        const days = eachDayOfInterval({start: new Date(), end: new Date('2023-09-02 15:00:00')});
-        setDaysReamining(days.length);
-        const hours = eachHourOfInterval({start: new Date(), end: new Date('2023-09-02 15:00:00')});
-        setHoursReamining((hours.length / 24));
-        const minutes = eachHourOfInterval({start: new Date(), end: new Date('2023-09-02 15:00:00')});
-    },[]);
 
     return (
         <div className="flex flex-col items-center">
@@ -27,7 +21,7 @@ export default function Home() {
 
             <header className="w-full h-20 border-b-2 flex justify-center items-center fixed bg-[#cb6834]">
                 <Image
-                    src={require('../src/assets/img-header-white.png')}
+                    src={ImgHeader}
                     alt='Imagem dos noivos'
                     className='w-[75px] object-contain'
                 />  
@@ -48,7 +42,24 @@ export default function Home() {
                 </div>
                 <h2 className="text-center font-bold text-xl mt-5">Faltam</h2>
 
-                <h3 className="text-center text-[#cb6843] font-bold text-3xl">{daysRemaining} Dias</h3>
+                <div className="flex items-center justify-center gap-3">
+                    <div className="flex flex-col items-center justify-center rounded-md gap-2 w-16 h-16 bg-[#cb6843]">
+                        <p className="font-bold text-white text-3xl">{day}</p>
+                        <p className="text-white text-sm mt-[-10px]">Dias</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-center rounded-md gap-2 w-16 h-16 bg-[#cb6843]">
+                        <p className="font-bold text-white text-3xl">{hour}</p>
+                        <p className="text-white text-sm mt-[-10px]">Horas</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-center rounded-md gap-2 w-16 h-16 bg-[#cb6843]">
+                        <p className="font-bold text-white text-3xl">{minute}</p>
+                        <p className="text-white text-sm mt-[-10px]">Minutos</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-center rounded-md gap-2 w-16 h-16 bg-[#cb6843]">
+                        <p className="font-bold text-white text-3xl">{second}</p>
+                        <p className="text-white text-sm mt-[-10px]">Segundos</p>
+                    </div>
+                </div>
 
                 <Link
                     href='/confirmation'
