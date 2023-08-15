@@ -10,9 +10,9 @@ export function ModalSuccess({close, name}){
             <div className='bg-[rgba(0,0,0,0.8)] fixed inset-0'/>
             <div className='absolute flex flex-col items-center justify-between p-3 lg:w-[300px] h-[400px] bg-white rounded-md m-auto inset-0 border-2'>
                 <Image
-                    src={require('../../src/assets/img-header.png')}
+                    src={require('../../src/assets/nome-terra.png')}
                     alt='Imagem dos noivos'
-                    className='w-[150px] object-contain'
+                    className='w-[180px] object-contain'
                 />
 
                 <section>

@@ -71,7 +71,7 @@ export default function Confirmation() {
                 <Image
                     src={ImgHeader}
                     alt='Imagem dos noivos'
-                    className='w-[120px] object-contain'
+                    className='w-[150px] object-contain'
                 />
             </header>
 
