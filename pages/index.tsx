@@ -35,7 +35,7 @@ export default function Home() {
                 />
 
                 <p className="text-[#cb6843] text-center my-3">Estamos ansiosos esperando por você, confirme sua presença abaixo</p>
-                <p className="text-[#cb6843] text-center">A festa será realizada no Victors Buffet, dia 2 de setembro às 11:30</p>
+                <p className="text-[#cb6843] text-center">A cerimônia e recepção será realizada no Victors Buffet, dia 2 de setembro às 11:00</p>
                 <div className='flex items-center justify-center gap-1'>
                     <MdLocationPin color='black' size={25}/>
                     <p className='text-center'>R. Saldanha Marinho 259 - Santa Paula, São Caetano do Sul</p>
@@ -70,6 +70,22 @@ export default function Home() {
 
                 <h4 className="font-bold text-[#cb6843] mt-10">Quer nos presentear?</h4>
                 <p className="text-black text-center">Fique a vontade para enviar qualquer valor de sua preferência</p>
+
+                <div className='flex flex-col items-center justify-center gap-3 py-5 lg:flex-row'>
+                    <Image
+                        alt='Qr code pix'
+                        src={require('../public/assets/qr.jpg')}
+                        className='w-[180px] object-contain'
+                    />
+
+                    <div className='flex flex-col items-center'>
+                        <h4 className='font-bold text-[#cb6843]'>ROSIRENE ENEDINA DA SILVA</h4>
+                        <h4 className='font-bold text-black'>Banco Bradesco</h4>
+
+                        <h4 className='font-bold text-[#cb6843] text-lg mt-3'>428.535.638-47</h4>
+                        <h4 className='font-bold text-black'>Chave PIX CPF</h4>
+                    </div>
+                </div>
             </main>
 
             <footer>

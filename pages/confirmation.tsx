@@ -123,6 +123,25 @@ export default function Confirmation() {
                     <HiHome color='#cb6843' size={24}/>
                     Voltar para o início
                 </Link>
+
+                <h4 className="font-bold text-[#cb6843] mt-10 text-center">Quer nos presentear?</h4>
+                <p className="text-black text-center">Fique a vontade para enviar qualquer valor de sua preferência</p>
+
+                <div className='flex flex-col items-center justify-center gap-3 py-5 lg:flex-row'>
+                    <Image
+                        alt='Qr code pix'
+                        src={require('../public/assets/qr.jpg')}
+                        className='w-[180px] object-contain'
+                    />
+
+                    <div className='flex flex-col items-center'>
+                        <h4 className='font-bold text-[#cb6843]'>ROSIRENE ENEDINA DA SILVA</h4>
+                        <h4 className='font-bold text-black'>Banco Bradesco</h4>
+
+                        <h4 className='font-bold text-[#cb6843] text-lg mt-3'>428.535.638-47</h4>
+                        <h4 className='font-bold text-black'>Chave PIX CPF</h4>
+                    </div>
+                </div>
             </main>
 
             <footer>
